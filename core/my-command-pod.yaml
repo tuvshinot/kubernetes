@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadate: 
+  name: my-command-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    ports: 
+    - containerPort: 80
+    command: ['echo']
+    args: ['Hello Kubernetes!']
+  restartPolicy: Never
