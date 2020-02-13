@@ -15,9 +15,9 @@ EOF`
 -------------------------------------------
 **Install Docker and Kubernetes packages:**
 
-_Note that if you want to use a newer version of Kubernetes, change the version installed for kubelet, kubeadm, and kubectl. Make sure all three use the same version.
+**Note that if you want to use a newer version of Kubernetes, change the version installed for kubelet, kubeadm, and kubectl. Make sure all three use the same version.**
 
-Note: There is currently a bug in Kubernetes 1.13.4 (and earlier) that can cause problems installaing the packages. Use 1.13.5-00 to avoid this issue._
+**Note: There is currently a bug in Kubernetes 1.13.4 (and earlier) that can cause problems installaing the packages. Use 1.13.5-00 to avoid this issue.**
 
 `sudo apt-get update`
 
@@ -34,6 +34,7 @@ Note: There is currently a bug in Kubernetes 1.13.4 (and earlier) that can cause
 
 ------------------------------
 _**On the Kube master server**_
+
 **Initialize the cluster:**
 
 `sudo kubeadm init --pod-network-cidr=10.244.0.0/16`
@@ -56,6 +57,7 @@ _**On the Kube master server**_
 
 --------------------------
 _**On each Kube node server**_
+
 **Join the node to the cluster:**
 
 `sudo kubeadm join $controller_private_ip:6443 --token $token --discovery-token-ca-cert-hash $hash`
